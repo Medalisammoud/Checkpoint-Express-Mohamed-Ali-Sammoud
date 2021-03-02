@@ -7,10 +7,10 @@ const app = express()
 
 app.use(function (req, res, next) {
   const date=new Date();
-    if((date.getDay()===0 || date.getDay()===6)||(date.getHours()<9 || date.getHours()>17)){
+    if((date.getDay() === 0 || date.getDay() === 6) || (date.getHours() < 9 || date.getHours() > 17)){
       res.end('Return in Working Time, The Apllication is Closed')
     }
-    next();
+    next()
 })
 
 //template engine hbs
