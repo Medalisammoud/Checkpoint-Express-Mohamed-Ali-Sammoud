@@ -4,7 +4,7 @@ const express = require('express')
 const path = require('path')
 
 const app = express()
-
+//Middleware working time
 app.use(function (req, res, next) {
   const date=new Date();
     if((date.getDay() === 0 || date.getDay() === 6) || (date.getHours() < 9 || date.getHours() > 17)){
@@ -14,10 +14,12 @@ app.use(function (req, res, next) {
 })
 
 //template engine hbs
+
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/views/partials'));
+app.use(express.static(__dirname+'/public'))
 
 //Middleware Router 
 app.get('/', (req, res) => {
