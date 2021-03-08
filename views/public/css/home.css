@@ -1,4 +1,12 @@
 .home{
     display: flex;
-    
+    flex-direction: column;
+    align-items: center;
+    margin:50px 200px ;
+}
+.service{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:50px 200px ;
 }

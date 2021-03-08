@@ -15,11 +15,13 @@ app.use(function (req, res, next) {
 
 //template engine hbs
 
-hbs.registerPartials(__dirname + '/views/partials');
+
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-app.set('views', __dirname + '/views');
+
+hbs.registerPartials(__dirname + '/views/partials');
 app.use(express.static(__dirname + '/views/partials'));
-app.use(express.static(__dirname+'/public'))
+app.use(express.static(path.join(__dirname, 'views/public')));
 
 //Middleware Router 
 app.get('/', (req, res) => {
